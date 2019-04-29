@@ -1,0 +1,82 @@
+/* style.css : giftastic stylesheet */
+/* Jan Jakubowski - 29.apr.19  - inital */
+* {
+  font-family: Georgia, Times, "Times New Roman", serif;
+  /* font-family: 'Merriweather Sans', sans-serif; */
+  font-size: 20px;
+}
+
+body {
+  background-image: url("../images/topography.svg"), 
+    linear-gradient(110deg, #457FFF, #B0FFCB);
+  background-size: 340px, auto; 
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+  /* font-family: 'Merriweather Sans', sans-serif; */
+}
+
+h1 {
+  text-align: center;
+}
+
+body {
+  letter-spacing: -1px;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  width: 80%;
+  font-size: 60px;
+  font-weight: bold;
+  margin: 30px auto;
+  color: #eee;
+}
+
+p {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 30px;
+  line-height: 37px;
+  margin: 5px px;
+  padding: 2px  5px;
+}
+
+.gif-item-container {
+  width: 80%;
+  margin: 8px auto 8px auto;
+  display: grid;
+      grid-gap: 10px;
+      grid-template-columns: 1fr;
+ 
+}
+
+
+.gif-item {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid rgba(0, 0, 0, 0.03);
+  border-radius: 15px;
+  font-size: 35px;
+  background-color: darkslateblue;
+  color: #ccc; 
+}
+
+.item-image {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid rgba(0, 0, 0, 0.03);
+  border-radius: 15px;
+  /* font-size: 35px; */
+  /* background-color: darkslateblue;
+  color: #ccc;  */
+}
+
+
+/* END OF FILE */

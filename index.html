@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GifTastic</title>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Animated GIFs from giphy.com</h1>
+    
+        <!-- Rendered Buttons will get Dumped Here  -->
+        <div id="buttons-display"></div>
+    
+        <form id="gif-form">
+          <label for="gif-input">Add A Topic You Would Like To See</label>
+          <input type="text" id="gif-input">
+          <br>
+    
+          <!-- Button triggers new movie to be added -->
+          <input id="add-topic-button" type="submit" value="Add the Topic">
+        </form>
+    
+        <!-- Movies will Get Dumped Here -->
+        <div id="gif-display"></div>
+
+    </container>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/js/giftastic.js"></script>
+</body>
+</html>
