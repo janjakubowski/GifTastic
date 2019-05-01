@@ -17,10 +17,6 @@ h1, h2, h3, h4 {
   /* font-family: 'Merriweather Sans', sans-serif; */
 }
 
-h1 {
-  text-align: center;
-}
-
 body {
   letter-spacing: -1px;
 }
@@ -32,7 +28,8 @@ body, html {
 
 h1 {
   width: 80%;
-  font-size: 60px;
+  text-align: center;
+  font-size: 32px;
   font-weight: bold;
   margin: 30px auto;
   color: #eee;
@@ -40,19 +37,87 @@ h1 {
 
 p {
   font-family: 'Merriweather Sans', sans-serif;
-  font-size: 30px;
-  line-height: 37px;
+  font-size: 24px;
+  line-height: 28px;
   margin: 5px px;
   padding: 2px  5px;
 }
+
+.user-input-display {
+  width: 90%;
+  margin: 8px auto 8px auto;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 4fr 2fr 1fr;
+}
+
+.user-input-item {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid rgba(0, 0, 0, 0.03);
+  border-radius: 15px;
+  font-size: 35px;
+  background-color: darkslateblue;
+  color: #ccc; 
+}
+
+.topic-buttons {
+  /* width: 90%; */
+  margin: 8px auto 8px auto;
+  display: grid;
+  grid-gap: 10px;
+  /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.topic-button {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid rgba(0, 0, 0, 0.03);
+  border-radius: 15px;
+  font-size: 24px;
+  background-color: yellow;
+  color: black; 
+}
+
+.topic-button:hover {
+
+  background-color: black;
+  color: yellow; 
+}
+
+
+
+/* .button-container {
+  width: 90%;
+  margin: 8px auto 8px auto;
+  display: grid;
+      grid-gap: 10px;
+      grid-template-columns: 3fr 1fr;
+ 
+} */
 
 .gif-item-container {
   width: 80%;
   margin: 8px auto 8px auto;
   display: grid;
       grid-gap: 10px;
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
  
+}
+
+.gif-item-title {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid rgba(0, 0, 0, 0.03);
+  border-radius: 15px;
+  font-size: 35px;
+  background-color: blue;
+  color: yellow;
+  grid-column: 1 / -1; 
 }
 
 
@@ -63,8 +128,9 @@ p {
   border: 5px solid rgba(0, 0, 0, 0.03);
   border-radius: 15px;
   font-size: 35px;
-  background-color: darkslateblue;
-  color: #ccc; 
+  background-color: blue;
+  color: yellow;
+  
 }
 
 .item-image {

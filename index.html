@@ -7,25 +7,31 @@
     <title>GifTastic</title>
 
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
     <div class="container">
+
         <h1>Animated GIFs from giphy.com</h1>
     
-        <!-- Rendered Buttons will get Dumped Here  -->
-        <div id="buttons-display"></div>
-    
-        <form id="gif-form">
-          <label for="gif-input">Add A Topic You Would Like To See</label>
-          <input type="text" id="gif-input">
-          <br>
-    
-          <!-- Button triggers new movie to be added -->
-          <input id="add-topic-button" type="submit" value="Add the Topic">
-        </form>
-    
-        <!-- Movies will Get Dumped Here -->
+        <div class="user-input-display">
+          
+          <div class="container user-input-item">
+              <div id="buttons-display"></div>
+          </div>
+      
+          <form id="giftastic-form" class="user-input-item">
+            <div class="form-group">
+              <label for="gif-input">Add A Topic You Would Like To See</label>
+              <input class="form-control" type="text" id="gif-input">
+            </div>
+            <br>
+            <input id="add-topic-button" type="submit" value="Add the Topic">
+          </form>
+
+          <div class="user-input-item">radio buttons</div>
+        </div>
+        
         <div id="gif-display"></div>
 
     </container>
