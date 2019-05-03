@@ -1,5 +1,6 @@
 /* style.css : giftastic stylesheet */
-/* Jan Jakubowski - 29.apr.19  - inital */
+
+/* */
 * {
   font-family: Georgia, Times, "Times New Roman", serif;
   /* font-family: 'Merriweather Sans', sans-serif; */
@@ -9,16 +10,13 @@
 body {
   background-image: url("../images/topography.svg"), 
     linear-gradient(110deg, #457FFF, #B0FFCB);
-  background-size: 340px, auto; 
+  background-size: 100vh, auto;
+  letter-spacing: -1px; 
 }
 
 h1, h2, h3, h4 {
   font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
   /* font-family: 'Merriweather Sans', sans-serif; */
-}
-
-body {
-  letter-spacing: -1px;
 }
 
 body, html {
@@ -43,106 +41,110 @@ p {
   padding: 2px  5px;
 }
 
-.user-input-display {
-  width: 90%;
+/* START HERE: flexbox for user input section */
+
+/* Highest level container */
+.user-input-container {
+  width: 95%;
   margin: 8px auto 8px auto;
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: 4fr 2fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  /* font-weight: 700; */
+  font-size: 1em;
 }
 
-.user-input-item {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  border: 5px solid rgba(0, 0, 0, 0.03);
+/* container within user-input-container */
+/* .user-input-item { */
+.button-container {
+  border: 5px solid rgba(255, 255, 255, 0.03);
   border-radius: 15px;
   font-size: 35px;
   background-color: darkslateblue;
-  color: #ccc; 
+  color: #ccc;
+  flex-basis: 100%;
 }
 
+/* container within button-container */
 .topic-buttons {
-  /* width: 90%; */
-  margin: 8px auto 8px auto;
-  display: grid;
-  grid-gap: 10px;
-  /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
-  grid-template-columns: repeat(5, 1fr);
+  margin: 10px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .topic-button {
-  display: grid;
-  justify-content: center;
-  align-items: center;
+  margin: 5px;
   border: 5px solid rgba(0, 0, 0, 0.03);
   border-radius: 15px;
   font-size: 24px;
-  background-color: yellow;
+  background-color: goldenrod;
   color: black; 
 }
 
 .topic-button:hover {
-
   background-color: black;
   color: yellow; 
 }
 
-
-
-/* .button-container {
-  width: 90%;
-  margin: 8px auto 8px auto;
-  display: grid;
-      grid-gap: 10px;
-      grid-template-columns: 3fr 1fr;
- 
-} */
+/* START HERE: flexbox for gif display section */
 
 .gif-item-container {
-  width: 80%;
-  margin: 8px auto 8px auto;
-  display: grid;
-      grid-gap: 10px;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
- 
+  width:95%;
+  margin:0 auto;
+  display:flex;
+  flex-wrap:wrap;
+  flex-direction:row;
+  /* border:10px solid goldenrod; */
 }
 
 .gif-item-title {
-  display: grid;
-  justify-content: center;
-  align-items: center;
   border: 5px solid rgba(0, 0, 0, 0.03);
   border-radius: 15px;
   font-size: 35px;
-  background-color: blue;
-  color: yellow;
-  grid-column: 1 / -1; 
+  background-color: black;
+  color: goldenrod;
+  flex-basis: 100%;
+  /* grid-column: 1 / -1;  */
 }
-
 
 .gif-item {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  border: 5px solid rgba(0, 0, 0, 0.03);
+  border: 2px solid rgba(0, 0, 0, 0.03);
   border-radius: 15px;
-  font-size: 35px;
-  background-color: blue;
-  color: yellow;
-  
+  flex-basis:250px;
+  flex-grow:1;
 }
 
-.item-image {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  border: 5px solid rgba(0, 0, 0, 0.03);
-  border-radius: 15px;
+/* .item-image { */
+  /* display: grid; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* border: 5px solid rgba(0, 0, 0, 0.03); */
+  /* border-radius: 15px; */
+  /* object-fit: fill; */
   /* font-size: 35px; */
   /* background-color: darkslateblue;
   color: #ccc;  */
+/* } */
+
+.form-group {
+  padding: 3px 50px;
 }
 
+.user-input-form {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.user-input-form input[type="submit"] {
+  background:#FF5A5F;
+  border-top: 1px solid #FF5A5F;
+  border-bottom: 1px solid #FF5A5F;
+  color:white;
+}
+
+input[type="search"] {
+  flex-basis:500px;
+}
 
 /* END OF FILE */
