@@ -57,7 +57,7 @@ p {
 /* .user-input-item { */
 .button-container {
   border: 5px solid rgba(255, 255, 255, 0.03);
-  border-radius: 15px;
+  border-radius: 15px 15px 0 0;
   font-size: 35px;
   background-color: darkslateblue;
   color: #ccc;
@@ -75,7 +75,7 @@ p {
 .topic-button {
   margin: 5px;
   border: 5px solid rgba(0, 0, 0, 0.03);
-  border-radius: 15px;
+  border-radius: 15px 0 0 15px;
   font-size: 24px;
   background-color: goldenrod;
   color: black; 
@@ -86,45 +86,125 @@ p {
   color: yellow; 
 }
 
+.button-wrapper {
+  /* margin: 10px auto; */
+  margin: 0 5px;
+  padding: 0 5px;
+  display: flex;
+}
+
+.remove-button {
+  margin: 5px 5px 5px -5px;
+  border: 5px solid rgba(0, 0, 0, 0.03);
+  border-radius: 0 15px 15px 0;
+  font-size: 18px;
+  background-color: red;
+  color: white; 
+}
+
+.remove-button:hover {
+  background-color: white;
+  color: red; 
+}
+
+.form-container {
+  border: 5px solid rgba(255, 255, 255, 0.03);
+  border-radius: 0 0 15px 15px;
+  font-size: 28px;
+  background-color: darkslateblue;
+  color: #ccc;
+  flex-basis: 100%;
+}
+
+
 /* START HERE: flexbox for gif display section */
 
 .gif-item-container {
-  width:95%;
-  margin:0 auto;
-  display:flex;
-  flex-wrap:wrap;
-  flex-direction:row;
-  /* border:10px solid goldenrod; */
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.gif-item-container:after {
+  content: '';
+  flex: 10 0 auto;
 }
 
 .gif-item-title {
   border: 5px solid rgba(0, 0, 0, 0.03);
-  border-radius: 15px;
+  border-radius: 15px 15px 0 0;
   font-size: 35px;
   background-color: black;
   color: goldenrod;
   flex-basis: 100%;
-  /* grid-column: 1 / -1;  */
 }
 
 .gif-item {
-  border: 2px solid rgba(0, 0, 0, 0.03);
+  display: flex;
+  position: relative;
+  border: 5px solid rgba(0, 0, 0, 0.03);
   border-radius: 15px;
-  flex-basis:250px;
-  flex-grow:1;
+  flex-basis: 250px;
+  flex-grow: 1;
 }
 
-/* .item-image { */
-  /* display: grid; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* border: 5px solid rgba(0, 0, 0, 0.03); */
-  /* border-radius: 15px; */
-  /* object-fit: fill; */
-  /* font-size: 35px; */
-  /* background-color: darkslateblue;
-  color: #ccc;  */
-/* } */
+.gif-image {
+  flex: 1;
+  align-items: center;
+}
+
+.gif-rating {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  background-color: #111;
+  color: white;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  z-index: 1;
+  text-transform: uppercase;
+}
+
+.gif-favorite {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  background-color: #888888;
+  /* opacity: 0.6; */
+  color: #eeeeee;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  z-index: 1;
+}
+
+.gif-favorite:hover {
+  background-color: #eeeeee;
+  /* opacity: 0.6; */
+  color: #888888;
+}
+
+/* .gif-item .gif-toggle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+} */
+
 
 .form-group {
   padding: 3px 50px;
