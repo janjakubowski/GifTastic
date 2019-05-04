@@ -119,15 +119,24 @@ p {
 
 /* START HERE: flexbox for gif display section */
 
-.gif-item-container {
+.gif-all-item-container {
   width: 95%;
   margin: 0 auto;
+  /* display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; */
+}
+
+.gif-one-topic-container {
+  width: 95%;
+  margin: 10px auto;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
 }
 
-.gif-item-container:after {
+
+.gif-one-topic-container:after {
   content: '';
   flex: 10 0 auto;
 }
@@ -186,6 +195,15 @@ p {
 .gif-favorite:hover {
   background-color: #eeeeee;
   /* opacity: 0.6; */
+  color: #888888;
+}
+
+.is-favorite {
+  color: green;
+}
+
+.is-favorite:hover {
+  background-color: green;
   color: #888888;
 }
 
