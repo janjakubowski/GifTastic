@@ -5,21 +5,50 @@ var searchQuanity = 10;
 var offset = 0;
 
 // var topics = ["dog", "hippopotamus", "zebra", "animal", "wtf"];
+var topics;
+var favorites;
 
 
 // ///////// Functions
 
+function displayFavorite () {
+
+    // favorites = JSON.parse(localStorage.getItem("favorites"));
+    if (favorites.length == 0) {
+        alert("You haven't selected any favorites");
+        return;
+    }
+    for (var i=0; i < favorites.length; i++) {
+        console.log()
+    }
+
+}
+
 function toggleFavorite () {
     // var gifUid = $(this).attr("data-uid");
+    favorites = JSON.parse(localStorage.getItem("favorites"));
+
     var uid = $(this).attr("data-uid");
     var isFav = $(this).attr("data-is-fav");
+
     if (isFav == "Y") {
+
+        favorites.splice(favorites.indexOf(uid),1);
         $(this).removeClass("is-favorite");
         $(this).attr("data-is-fav", "N");
+
     } else {
+
+        if (!Array.isArray(favorites)) {
+            favorites = [uid];
+        } else {
+            favorites.push(uid);
+        }
         $(this).addClass("is-favorite");
         $(this).attr("data-is-fav", "Y");
+
     }
+    localStorage.setItem("favorites", JSON.stringify(favorites));
 }
 
 function addButton () {
@@ -177,6 +206,8 @@ function displayTopicButtons(topics) {
 
   $(document).on("click", ".remove-button", removeButton);
 
+  $(document).on("click", ".my-favorites", displayFavorite);
+
   $(document).on("click", ".gif-favorite", toggleFavorite);
 
   // $(document).on("click", ".favs-button", displayFav);
@@ -189,12 +220,20 @@ function displayTopicButtons(topics) {
 
   // ////////////////// Initialization
 
-var topics = JSON.parse(sessionStorage.getItem("topics"));
+topics = JSON.parse(sessionStorage.getItem("topics"));
 if (!Array.isArray(topics)) {
     topics = initialTopics;
     sessionStorage.setItem("topics", JSON.stringify(topics));
   }
 displayTopicButtons(topics);
+
+favorites = JSON.parse(localStorage.getItem("favorites"));
+if (!Array.isArray(favorites)) {
+    favorites = [];
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+}
+
+
 
 // var favoriteGifs = JSON.parse(localStorage.getItem("favoriteGifs"));
 // if (Array.isArray(favoriteGifs)) {
