@@ -13,39 +13,46 @@
 <body>
     <div class="container">
 
-        <h1>Animated GIFs from giphy.com</h1>
-    
-        <div class="user-input-container">
-          
-            <div class="button-container">
-            <!-- <div class="button-container user-input-item"> -->
-                <div id="buttons-display"></div>
-            </div>
+      <header class="header-container">
+        
+        <h1>Get 'Ur GIF</h1>
+        
+        <form id="giftastic-form" class="user-input-form form-container">
+          <!-- <div class="form-group"> -->
+            <input class="form-control" type="text" id="gif-input" placeholder="Add A Topic">
+            <input id="add-topic-button" type="submit" value="+">
+          <!-- </div> -->
+        </form>
+        
+          <div class="form-group">
+            <label for="form-radio">Desired Number of GIFs:</label>
+            <br>
+            <!-- <div class="form-radio"> -->
+            <input type="radio"  id="quanity5" name="numberOfGifs" value=5>
+            <label class="form-check-label" for="quanity5">5</label>
+            <input type="radio" class="form-check-input" id="quanity10" name="numberOfGifs" value=10 checked>
+            <label class="form-check-label" for="quanity10">10</label>
+            <input type="radio" class="form-check-input" id="quanity15" value=15 name="numberOfGifs">
+            <label class="form-check-label" for="quantity15">15</label>
+            <input type="radio" class="form-check-input" id="quanity15" value=20 name="numberOfGifs">
+            <label class="form-check-label" for="quantity15">20</label>
+          </div>
+  
+        <!-- </div> -->
+  
+        
+        
+      </header>
       
-            <form id="giftastic-form" class="user-input-form form-container">
-              <!-- <div class="form-group"> -->
-                <input class="form-control" type="text" id="gif-input" placeholder="Add an ANIMAL">
-                <input id="add-topic-button" type="submit" value="+">
-              <!-- </div> -->
-            
-              <div class="form-group">
-                <label for="form-radio">Number of GIFs to Search for: </label>
+      
+      <div class="user-input-container">
+        
+        <div class="button-container">
+          <!-- <div class="button-container user-input-item"> -->
+            <div id="buttons-display"></div>
+          </div>
           
-                <!-- <div class="form-radio"> -->
-                  <input type="radio"  id="quanity5" name="numberOfGifs" value=5>
-                  <label class="form-check-label" for="quanity5">5</label>
-                  <input type="radio" class="form-check-input" id="quanity10" name="numberOfGifs" value=10 checked>
-                  <label class="form-check-label" for="quanity10">10</label>
-                  <input type="radio" class="form-check-input" id="quanity15" value=15 name="numberOfGifs">
-                  <label class="form-check-label" for="quantity15">15</label>
-                  <input type="radio" class="form-check-input" id="quanity15" value=20 name="numberOfGifs">
-                  <label class="form-check-label" for="quantity15">20</label>
-              </div>
-
-            </div>
-
-          </form>
-            
+          
         </div>
         
         <div id="gif-display" class="gif-all-item-containter"></div>

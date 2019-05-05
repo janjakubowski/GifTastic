@@ -25,11 +25,12 @@ body, html {
 }
 
 h1 {
-  width: 80%;
-  text-align: center;
+  /* width: 80%; */
+  text-align: left;
   font-size: 32px;
   font-weight: bold;
-  margin: 30px auto;
+  margin: 10px auto;
+  padding: 0 0 0 20px;
   color: #eee;
 }
 
@@ -41,35 +42,65 @@ p {
   padding: 2px  5px;
 }
 
-/* START HERE: flexbox for user input section */
+/* START HERE: flexbox for header & user input section */
+
+.header-container {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  /* flex-wrap: wrap; */
+  /* font-weight: 700; */
+  font-size: 1em;
+  background-color: darkslateblue;
+  color: #ccc;
+}
+
+/* h1 {
+  float:left;
+} */
+
+
+
+.form-container {
+  /* border: 5px solid rgba(255, 255, 255, 0.03); */
+  /* border-radius: 0 0 15px 15px; */
+  font-size: 28px;
+  background-color: darkslateblue;
+  color: #ccc;
+  /* flex-basis: 100%; */
+  /* float: right; */
+}
 
 /* Highest level container */
-.user-input-container {
+/* .user-input-container {
   width: 95%;
   margin: 8px auto 8px auto;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
   /* font-weight: 700; */
-  font-size: 1em;
-}
+  /* font-size: 1em;
+} */
 
 /* container within user-input-container */
 /* .user-input-item { */
 .button-container {
-  border: 5px solid rgba(255, 255, 255, 0.03);
-  border-radius: 15px 15px 0 0;
-  font-size: 35px;
+  /* border: 5px solid rgba(255, 255, 255, 0.03); */
+  /* border-radius: 0 0 15px 15px; */
+  font-size: 18px;
   background-color: darkslateblue;
   color: #ccc;
   flex-basis: 100%;
+  margin: 0;
 }
 
 /* container within button-container */
 .topic-buttons {
-  margin: 10px auto;
+  margin: 0;
+  padding: 5px 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  border-top: 2px solid goldenrod;
 }
 
 .topic-button {
@@ -107,20 +138,12 @@ p {
   color: red; 
 }
 
-.form-container {
-  border: 5px solid rgba(255, 255, 255, 0.03);
-  border-radius: 0 0 15px 15px;
-  font-size: 28px;
-  background-color: darkslateblue;
-  color: #ccc;
-  flex-basis: 100%;
-}
 
 
 /* START HERE: flexbox for gif display section */
 
 .gif-all-item-container {
-  width: 95%;
+  width: 80%;
   margin: 0 auto;
   /* display: flex;
   flex-wrap: wrap;
@@ -128,17 +151,19 @@ p {
 }
 
 .gif-one-topic-container {
-  width: 95%;
+  width: 80%;
   margin: 10px auto;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  background: url(../images/backdrop.jpg);
+  border-radius: 15px;
 }
 
 
 .gif-one-topic-container:after {
   content: '';
-  flex: 10 0 auto;
+  flex: 100 0 auto;
 }
 
 .gif-item-title {
@@ -153,8 +178,11 @@ p {
 .gif-item {
   display: flex;
   position: relative;
-  border: 5px solid rgba(0, 0, 0, 0.03);
-  border-radius: 15px;
+  margin: 0 10px 0 10px;
+  padding: 10px 20px;
+  /* border: 5px solid rgba(0, 0, 0, 0.03); */
+  /* border-radius: 15px; */
+  border: 10px brown;
   flex-basis: 250px;
   flex-grow: 1;
 }
@@ -166,8 +194,8 @@ p {
 
 .gif-rating {
   position: absolute;
-  top: 5%;
-  right: 5%;
+  top: 10%;
+  right: 10%;
   background-color: #111;
   color: white;
   font-size: 20px;
@@ -180,8 +208,8 @@ p {
 
 .gif-favorite {
   position: absolute;
-  bottom: 5%;
-  right: 5%;
+  bottom: 10%;
+  right: 10%;
   background-color: #888888;
   /* opacity: 0.6; */
   color: #eeeeee;

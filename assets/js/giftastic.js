@@ -2,6 +2,7 @@
 var initialTopics = ["dog", "hippopotamus", "zebra"];
 // const originalNumTopics = topics.length;
 var searchQuanity = 10;
+var offset = 0;
 
 // var topics = ["dog", "hippopotamus", "zebra", "animal", "wtf"];
 
@@ -10,16 +11,14 @@ var searchQuanity = 10;
 
 function toggleFavorite () {
     // var gifUid = $(this).attr("data-uid");
-    // console.log("favorite clicked");
     var uid = $(this).attr("data-uid");
-    var isFav = $(this).attr("data-isfav");
-    console.log(uid + isFav)
+    var isFav = $(this).attr("data-is-fav");
     if (isFav == "Y") {
         $(this).removeClass("is-favorite");
-        $(this).attr("data-isfav", "N");
+        $(this).attr("data-is-fav", "N");
     } else {
         $(this).addClass("is-favorite");
-        $(this).attr("data-isfav", "Y");
+        $(this).attr("data-is-fav", "Y");
     }
 }
 
@@ -42,12 +41,29 @@ function removeButton () {
     sessionStorage.setItem("topics", JSON.stringify(topics));
 }
 
+function toggleGif() {
+
+      var isStill = $(this).attr("data-is-still");
+
+    //   console.log("isStill: " + isStill);
+
+      if (isStill === "Y") {
+        //   console.log("src: " + $(this).attr("data-animate"));
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-is-still", "N");
+      } else {
+        // console.log("src: " + $(this).attr("data-still"));
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-is-still", "Y");
+      }
+}
+
 function displayGif() {
 
     var topicName = $(this).attr("data-name");
 
     var allTopicContainer = $("#gif-display");
-        // topicContainer.addClass("gif-item-container");
+        
     var topicContainer = $("<div>");
         topicContainer.addClass("gif-one-topic-container");
 
@@ -55,24 +71,38 @@ function displayGif() {
         topicTitle.addClass("gif-item-title");
         topicTitle.text(topicName);
 
-    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=JfHIP0y01p8J0dSWEMChmhN2aWoTT7j6&limit=" + searchQuanity + "&q=" + topicName;
+    var queryURL = "https://api.giphy.com/v1/gifs/search"
+                    + "?api_key=JfHIP0y01p8J0dSWEMChmhN2aWoTT7j6"
+                    + "&limit=" + searchQuanity + "&offset=" + offset + "&q=" + topicName;
+
+    offset += searchQuanity; 
     
     $.ajax({
       url: queryURL,
       method: "GET"
     }).then(function(response) {
+
+        if (response.data.length == 0) {
+            alert("No GIFs for " + topicName + " were found. Please make another selection.");
+            return;
+        }
         
         for (var i=0; i<response.data.length; i++) {
 
-            var imageUrl = response.data[i].images.fixed_height.url;
+            // var imageUrl = response.data[i].images.fixed_height_still.url;
+            var stillUrl = response.data[i].images.fixed_height_still.url;
+            var animateUrl = response.data[i].images.fixed_height.url;
             var rating = response.data[i].rating;
             
             var topicItem = $("<div>");
                 topicItem.addClass("gif-item");
             
             var topicImage = $("<img>");
-                topicImage.attr("src", imageUrl);
+                topicImage.attr("src", stillUrl);
                 topicImage.attr("alt", topicName + " image");
+                topicImage.attr("data-still", stillUrl);
+                topicImage.attr("data-animate", animateUrl);
+                topicImage.attr("data-is-still", "Y");
                 topicImage.addClass("gif-image");
             
             var topicRating = $("<p>");
@@ -83,7 +113,7 @@ function displayGif() {
                 topicFavorite.html('<i class="fa fa-heart" aria-hidden="true"></i>');
                 topicFavorite.addClass("gif-favorite");
                 topicFavorite.attr("data-uid", response.data[i].id);
-                topicFavorite.attr("data-isfav", "N");
+                topicFavorite.attr("data-is-fav", "N");
 
             topicItem.append(topicImage, topicRating, topicFavorite);
 
@@ -139,7 +169,11 @@ function displayTopicButtons(topics) {
 //       $("#gif-input").val("");
 //   });
 
+// $(".gif").on("click", function() {
+
   $(document).on("click", ".topic-button", displayGif);
+
+  $(document).on("click", ".gif-image", toggleGif);
 
   $(document).on("click", ".remove-button", removeButton);
 
